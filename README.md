@@ -3,7 +3,8 @@ Fast prototyping and testing java wrapper for uECC.
 Unoptimized, Unmaintained, Undocumented and Unsecure.
 
 ## Requirement :
-Tested with swig 3.0, java 7/8, micro-ecc (july 2017)
+Tested with swig 3.0, openjdk java 7/8, micro-ecc (july 2017)
+Raspberry pi & arch linux 64
 
 ## Compile and test :
 
@@ -12,7 +13,7 @@ Tested with swig 3.0, java 7/8, micro-ecc (july 2017)
 make clone && make
 ```
 
-note : you may have to adapt 
+note : you may have to adapt the jni path in Makefile (current automated research is naive).
 
 
 ## Example java api
