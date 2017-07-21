@@ -1,7 +1,9 @@
-%module uECC
+%module uECCSwig
 %include "stdint.i"
 %include "typemaps.i"
 %include "arrays_java.i";
+
+%apply(uint8_t *STRING, size_t LENGTH) { (uint8_t *str, size_t len) };
 
 %include "carrays.i"
 %array_functions(unsigned char, uint8Array);
