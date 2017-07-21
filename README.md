@@ -22,7 +22,6 @@ The api is self-explanatory.
 ```c
 package uECC;
 
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -31,19 +30,9 @@ import kmackay.uECC.uECCCurve;
 import kmackay.uECC.uECCKeyPair;
 import kmackay.uECC.uECCPrivateKey;
 import kmackay.uECC.uECCPublicKey;
-import cz.adamh.utils.NativeUtils;
 
-public class Example {
-    
-    	  static {   
-		    try {    
-		      NativeUtils.loadLibraryFromJar("/libuECC.so");   
-		    } catch (IOException e) {    
-		      e.printStackTrace(); // This is probably not the best way to handle exception :-)  
-		    }    
-		  }  
-
-
+public class Test {
+	
 	public static void main(String[] args) throws NoSuchAlgorithmException {
 		uECCCurve curve160 = uECCCurve.uECC_secp160r1();
 		uECCCurve curve256 = uECCCurve.uECC_secp256r1();
@@ -73,9 +62,10 @@ public class Example {
 			System.out.println("checks agaist same pair1 = "+ kp160_1.verify(hash, signature));
 			System.out.println("checks against pair1 signature" + pair.verify(hash, s1));
 		}
+
+
 	}
 }
-
 ```
 
 ## Example uECC api :
