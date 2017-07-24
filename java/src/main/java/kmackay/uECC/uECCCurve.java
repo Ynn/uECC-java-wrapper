@@ -1,24 +1,24 @@
 package kmackay.uECC;
 
+import java.io.Closeable;
 import java.io.IOException;
 
 import cz.adamh.utils.NativeUtils;
 import kmackay.swig.uECC.SWIGTYPE_p_uECC_Curve_t;
 import kmackay.swig.uECC.uECCSwig;
 
-public class uECCCurve {
+public class uECCCurve{
 	
 	static {   
 		try {    
-			System.out.println("LOADING libuECC.so");
 			NativeUtils.loadLibraryFromJar("/libuECC.so");   
 		} catch (IOException e) {    
-			System.err.println("Failed to load the library libuECC.so");
 			e.printStackTrace(); // This is probably not the best way to handle exception :-)  
 			System.exit(1);
 		}    
 	}  	
 	
+	protected boolean destroyed = false;	
 	private SWIGTYPE_p_uECC_Curve_t curve;
 	private CurveTYPE type; 
 
@@ -63,8 +63,8 @@ public class uECCCurve {
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return "curve "+ type;
 	}
+	
 
 }

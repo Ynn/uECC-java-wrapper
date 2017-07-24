@@ -10,7 +10,7 @@ import kmackay.uECC.uECCPrivateKey;
 import kmackay.uECC.uECCPublicKey;
 
 public class Example {
-    
+	
 	public static void main(String[] args) throws NoSuchAlgorithmException {
 		uECCCurve curve160 = uECCCurve.uECC_secp160r1();
 		uECCCurve curve256 = uECCCurve.uECC_secp256r1();
@@ -31,14 +31,27 @@ public class Example {
 
 		for (uECCKeyPair pair : pairs) {
 			System.out.println(pair);
+			
+			System.out.println("public key valid ? " + pair.getPublicKey().isValid());
+			System.out.println("computed public key : "+ pair.getPrivateKey().computePublicKey());
+			
 	        String text = "This is the text to hash";
 	        MessageDigest digest = MessageDigest.getInstance("SHA-256");
 	        byte[] hash = digest.digest(text.getBytes(StandardCharsets.UTF_8));
 			byte[] signature = pair.sign(hash);
 			byte[] s1 = kp160_1.sign(hash);
 			System.out.println("checks agaist same pair = "+ pair.verify(hash, signature));
-			System.out.println("checks agaist same pair1 = "+ kp160_1.verify(hash, signature));
-			System.out.println("checks against pair1 signature" + pair.verify(hash, s1));
+			System.out.println("checks agaist pair1 key = "+ kp160_1.verify(hash, signature));
+			System.out.println("checks against pair1 signature " + pair.verify(hash, s1));
+		}
+
+		for (uECCKeyPair pair : pairs) {
+			pair.destroy();
+			try {
+			System.out.println("public key valid ? " + pair.getPublicKey().isValid());
+			}catch(Exception e) {
+				System.out.println("The key is already destroyed");
+			}
 		}
 	}
 }

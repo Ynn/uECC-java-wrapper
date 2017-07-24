@@ -13,5 +13,6 @@
 /home/yo/dev_c/workspace/uECC-java/generated-java/src/main/java/kmackay/swig/uECC/uECCSwig.java
 /home/yo/dev_c/workspace/uECC-java/generated-java/src/main/java/kmackay/swig/uECC/SWIGTYPE_p_f_p_q_const__struct_uECC_HashContext_p_unsigned_char__void.java
 /home/yo/dev_c/workspace/uECC-java/generated-java/src/main/java/kmackay/swig/uECC/SWIGTYPE_p_f_p_q_const__struct_uECC_HashContext_p_q_const__unsigned_char_unsigned_int__void.java
+/home/yo/dev_c/workspace/uECC-java/generated-java/src/main/java/kmackay/uECC/uECC.java
 /home/yo/dev_c/workspace/uECC-java/generated-java/src/main/java/kmackay/swig/uECC/uECCSwigConstants.java
 /home/yo/dev_c/workspace/uECC-java/generated-java/src/main/java/kmackay/swig/uECC/SWIGTYPE_p_f_p_unsigned_char_unsigned_int__int.java

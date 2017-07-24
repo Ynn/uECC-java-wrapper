@@ -14,5 +14,6 @@ kmackay/uECC/uECCKeyPair.class
 kmackay/uECC/uECCCurve$CurveTYPE.class
 kmackay/swig/uECC/SWIGTYPE_p_f_p_q_const__struct_uECC_HashContext__void.class
 kmackay/swig/uECC/uECCSwigConstants.class
+kmackay/uECC/uECC.class
 kmackay/swig/uECC/SWIGTYPE_p_f_p_unsigned_char_unsigned_int__int.class
 kmackay/swig/uECC/uECCSwig.class

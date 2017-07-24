@@ -3,11 +3,12 @@ Fast prototyping and testing java wrapper for uECC.
 Unoptimized, Unmaintained, Undocumented and Unsecure.
 
 ## Requirement :
-Tested with swig 3.0, openjdk java 7/8, micro-ecc (july 2017)
+Tested with swig 3.0, openjdk java 7/8, micro-ecc (rev 601bd11062c551b108adbb43ba99f199b840777c)
 Raspberry pi & arch linux 64
 
 ## Compile and test :
 
+You can change micro-ecc rev in MakeFile
 
 ```shell
 make clone && make
@@ -17,7 +18,9 @@ note : you may have to adapt the jni path in Makefile (current automated researc
 
 
 ## Example java api
-See the code in the example directory.
+See the code in the example directory and in java/src/main/test
+
+
 The api is self-explanatory.
 
 ```c
@@ -71,7 +74,7 @@ public class Test {
 
 ## Example uECC api :
 
-This code assume the library has been loaded.
+This code assume the library has been loaded. It uses SWIG types.
 
 ```c
 package uECC;

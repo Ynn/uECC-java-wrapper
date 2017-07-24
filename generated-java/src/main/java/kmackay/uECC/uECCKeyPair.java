@@ -1,8 +1,11 @@
 package kmackay.uECC;
 
+import java.io.Closeable;
+import java.io.IOException;
+
 import kmackay.swig.uECC.uECCSwig;
 
-public class uECCKeyPair {
+public class uECCKeyPair implements Closeable{
 	public uECCPrivateKey privateKey;
 	public uECCPublicKey publicKey;
 	
@@ -22,6 +25,10 @@ public class uECCKeyPair {
 		this.publicKey = pubKey;
 	}
 	
+	public uECCCurve getCurve(){
+		return getPrivateKey().getCurve();
+	}
+	
 	public uECCPrivateKey getPrivateKey() {
 		return privateKey;
 	}
@@ -38,7 +45,16 @@ public class uECCKeyPair {
 		return getPublicKey().verify(hash, signature);
 	}
 	
+	public void destroy() {
+		getPrivateKey().destroy();
+		getPublicKey().destroy();
+	}
+	
 	public String toString() {
 		return String.format("{priv = %s , pub = %s}", getPrivateKey(), getPublicKey());
+	}
+
+	public void close() throws IOException {
+		destroy();
 	}
 }

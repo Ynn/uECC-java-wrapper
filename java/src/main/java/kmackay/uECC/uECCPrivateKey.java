@@ -23,10 +23,19 @@ public class uECCPrivateKey extends uECCKey {
 
 	@Override
 	public int getKeySize() {
+		checkDestroyed();
 		return curve.getPrivateKeySize();
 	}
 	
+	public uECCPublicKey computePublicKey() {
+		checkDestroyed();
+		uECCPublicKey pubKey = new uECCPublicKey(curve);
+		uECCSwig.uECC_compute_public_key(this.key, pubKey.key, curve.get());
+		return pubKey;
+	}
+	
 	public byte[] sign(byte[] hash) {
+		checkDestroyed();
         SWIGTYPE_p_unsigned_char p_hash = BinaryUtil.byteToUint8(hash);
         SWIGTYPE_p_unsigned_char p_signature = uECCSwig.new_uint8Array(curve.getPublicKeySize());
         uECCSwig.uECC_sign(this.getPointer(), p_hash, hash.length, p_signature, curve.get());
