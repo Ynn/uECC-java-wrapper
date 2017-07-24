@@ -5,6 +5,7 @@
 .settings
 micro-ecc 
 
+example/target/*
 generated-java/target/*
 java/bin
 java/target
