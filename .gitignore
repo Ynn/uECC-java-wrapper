@@ -5,6 +5,11 @@
 .settings
 micro-ecc 
 
+generated-java/target/*
+java/bin
+java/target
+.project
+
 # Prerequisites
 *.d
 
